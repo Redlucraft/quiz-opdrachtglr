@@ -6,26 +6,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Homepage</title>
     <link rel="stylesheet" href="styles/style.css" />
-    </head>
   </head>
-  
+
   <body>
     <header>
+      <div></div>
       <img src="assets/logo.png" alt="website logo" />
+      <div>Score: 62</div>
     </header>
-    <video autoplay muted loop> 
-      <source src="assets/video.mp4">
+    <video autoplay muted loop>
+      <source src="assets/video.mp4" />
     </video>
     <div class="overlay"></div>
     <main>
-      <div><a href=""></a><a href=""></a><a href=""></a></div>
+      <h1>Welkom op onze quiz website!</h1>
+      <p>
+        Op deze website zul je 3 verschillende quizen kunnen maken over
+        verschillende onderwerpen.<br />
+        Na het maken van deze quiz zal je score worden bij gehouden, deze score
+        kun je rechtsbovenaan in de header vinden
+      </p>
+      <div class="btn-wrapper">
+        <button>button1</button><button>button2</button><button>button3</button>
+      </div>
     </main>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
-      <script type="module" src="./scripts/dababaseConfig.js"></script>
+    <script type="module" src="./scripts/dababaseConfig.js"></script>
 
-      <script src="./scripts/UseCollectiondata.js"></script>
-
+    <script src="./scripts/UseCollectiondata.js"></script>
   </body>
-
 </html>

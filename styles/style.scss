@@ -1,3 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=Bangers&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap");
+$font-banger: "Bangers", cursive;
+$font-openSans: "Open Sans", sans-serif;
+$font-sourceSans: "Source Sans Pro", sans-serif;
+
+$color-mainWhite: hsl(206, 59%, 92%);
+
 *,
 *::after,
 *::before {
@@ -14,10 +21,15 @@ header {
   height: 100px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
   img {
     height: 100%;
     filter: drop-shadow(0 0 10px hsla(0, 100%, 90%, 0.5));
+  }
+  div:last-child {
+    color: $color-mainWhite;
+    font-family: $font-banger;
+    font-size: 28px;
   }
 }
 
@@ -39,4 +51,49 @@ video {
   width: 100%;
   background: hsla(0, 0%, 5%, 0.7);
   backdrop-filter: blur(3px);
+}
+
+main {
+  color: $color-mainWhite;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 60vh;
+  padding: 0 20%;
+  gap: 25px;
+  h1 {
+    font-family: $font-banger;
+    letter-spacing: 1.5px;
+    font-size: 52px;
+    text-align: center;
+  }
+  p {
+    font-family: $font-sourceSans;
+    font-weight: 400;
+    text-align: center;
+    font-size: 18px;
+  }
+  .btn-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    width: 100%;
+    gap: 10px;
+    button {
+      // grid-row: 1;
+      background: hsl(199, 100%, 25%);
+      color: $color-mainWhite;
+      font-family: $font-banger;
+      font-size: 24px;
+      border: none;
+      padding: 10px 0;
+      // border-radius: 10px;
+      clip-path: polygon(5% 0%, 100% 0%, 95% 100%, 0% 100%);
+      transition: all 150ms ease-in-out;
+      cursor: pointer;
+    }
+    button:hover {
+      clip-path: polygon(0 0, 95% 0, 100% 100%, 5% 100%);
+    }
+  }
 }
