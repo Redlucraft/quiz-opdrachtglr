@@ -4,7 +4,7 @@ console.log(db)
 
 var scoreRef1 = db.collection("scores");
 
- async function startquiz(name1, score1) {
+ async function senddata(name1, score1) {
     console.log("sending score now");
         await scoreRef1.add({
           name: name1 ,
