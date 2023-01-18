@@ -11,15 +11,15 @@ signinbtn.onclick = () => auth.signInWithPopup(provider);
 
 signoutbtn.onclick = () => auth.signOut();
 
-auth.onAuthStateChanged(user => {
-if(user) {
-    signedinsec.hidden =false;
-    signedoutsec.hidden = true
+auth.onAuthStateChanged((user) => {
+  if (user) {
+    signedinsec.hidden = false;
+    signedoutsec.hidden = true;
     userDetails.innerHTML = user.displayName;
-} else{
-// niet ingelogt
-signedinsec.hidden =true;
-signedoutsec.hidden = false;
-userDetails.innerHTML = '';
-}
+  } else {
+    // niet ingelogt
+    signedinsec.hidden = true;
+    signedoutsec.hidden = false;
+    userDetails.innerHTML = "";
+  }
 });

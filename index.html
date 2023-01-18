@@ -12,7 +12,10 @@
     <script type="module" src="./scripts/dababaseConfig.js"></script>
     <script src="./scripts/send.js" defer></script>
     <script src="./scripts/login.js" defer></script>
-
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
   </head>
 
   <body>
@@ -37,15 +40,16 @@
         <button>button1</button><button>button2</button><button>button3</button>
       </div>
     </main>
-      <section id="whenSignedOut">
-        <button id="sign-in-btn">Inloggen met Google</button>
-      </section>
+    <section id="whenSignedOut">
+      <button id="sign-in-btn">
+        <span class="material-symbols-outlined"> login </span>
+      </button>
+    </section>
     <section id="whenSignedIn" hidden="true">
       <div id="userDetails"></div>
-      <button id="sign-out-btn">Uitloggen</button>
-
+      <button id="sign-out-btn">
+        <span class="material-symbols-outlined"> logout </span>Uitloggen
+      </button>
     </section>
-
-
   </body>
 </html>

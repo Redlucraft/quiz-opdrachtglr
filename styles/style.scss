@@ -97,3 +97,63 @@ main {
     }
   }
 }
+
+#whenSignedOut {
+  position: absolute;
+  bottom: 25px;
+  left: 25px;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100000px;
+  overflow: hidden;
+  background: hsl(93, 100%, 40%);
+  transition: all 150ms ease-in-out;
+  cursor: pointer;
+  button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+    background: transparent;
+    border: none;
+    width: 100%;
+    height: 100%;
+  }
+}
+#whenSignedOut:hover {
+  background: hsl(93, 100%, 30%);
+}
+#whenSignedIn {
+  position: absolute;
+  bottom: 25px;
+  left: 25px;
+  // width: 45px;
+  padding: 0 15px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100000px;
+  overflow: hidden;
+  background: hsl(6, 100%, 40%);
+  transition: all 150ms ease-in-out;
+  cursor: pointer;
+  button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+    background: transparent;
+    border: none;
+    width: 100%;
+    height: 100%;
+  }
+}
+#whenSignedIn:hover {
+  background: hsl(6, 100%, 30%);
+}
