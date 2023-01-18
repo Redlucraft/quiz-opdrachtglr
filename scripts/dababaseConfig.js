@@ -25,9 +25,20 @@ db.collection("scores")
         querySnapshot.forEach((doc) => {
             // doc.data() is never undefined for query doc snapshots
             console.log(doc.id, " => ", doc.data());
+
+
         });
     })
     .catch((error) => {
         console.log("Error getting documents: ", error);
     });
 
+
+
+    
+
+    // const auth = firebase.auth();
+    // function signInWithGoogle () {
+    //     const provider = new firebase.auth.GoogleAuthProvider();
+    //     auth.signInWithPopup(provider);
+    //   }
