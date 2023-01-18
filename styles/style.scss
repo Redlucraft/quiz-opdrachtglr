@@ -135,8 +135,10 @@ main {
   padding: 0 15px;
   height: 45px;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  font-family: $font-sourceSans;
   border-radius: 100000px;
   overflow: hidden;
   background: hsl(6, 100%, 40%);

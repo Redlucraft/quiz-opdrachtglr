@@ -133,8 +133,10 @@ main .btn-wrapper button:hover {
   padding: 0 15px;
   height: 45px;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  font-family: "Source Sans Pro", sans-serif;
   border-radius: 100000px;
   overflow: hidden;
   background: hsl(6deg, 100%, 40%);
