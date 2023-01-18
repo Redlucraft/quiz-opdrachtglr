@@ -19,3 +19,27 @@ console.log(db)
 var scoreRef = db.collection("scores");
 
 
+db.collection("scores")
+    .get()
+    .then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+            // doc.data() is never undefined for query doc snapshots
+            console.log(doc.id, " => ", doc.data());
+        });
+    })
+    .catch((error) => {
+        console.log("Error getting documents: ", error);
+    });
+
+
+
+  async function startquiz() {
+    console.log("sending score now")
+        await db.scoreRef.add({
+          name: document.getElementById("naam") ,
+          score: document.getElementById("score")
+        }).then((scoreRef) =>{
+          console.log("document written ", scoreRef.id);
+        });
+    }
+
