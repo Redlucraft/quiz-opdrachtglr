@@ -31,15 +31,3 @@ db.collection("scores")
         console.log("Error getting documents: ", error);
     });
 
-
-
-  async function startquiz() {
-    console.log("sending score now")
-        await db.scoreRef.add({
-          name: document.getElementById("naam") ,
-          score: document.getElementById("score")
-        }).then((scoreRef) =>{
-          console.log("document written ", scoreRef.id);
-        });
-    }
-
