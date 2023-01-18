@@ -13,13 +13,13 @@ signoutbtn.onclick = () => auth.signOut();
 
 auth.onAuthStateChanged((user) => {
   if (user) {
-    signedinsec.hidden = false;
-    signedoutsec.hidden = true;
+    signedinsec.style.display = "flex"
+    signedoutsec.style.display = "none"
     userDetails.innerHTML = user.displayName;
   } else {
     // niet ingelogt
-    signedinsec.hidden = true;
-    signedoutsec.hidden = false;
+    signedinsec.style.display = "none"
+    signedoutsec.style.display = "flex"
     userDetails.innerHTML = "";
   }
 });
