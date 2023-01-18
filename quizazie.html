@@ -21,9 +21,10 @@
     <div class="overlay"></div>
     <main>
         <div id="container">
-  
+          
             <div id="start">Start Quiz</div>
     
+          
             <div id="guide">
                 <h2>Quiz Guide</h2>
                 <h4>1. Je hebt slechts 20 seconden voor elke vraag.</h4>
@@ -36,13 +37,57 @@
                     <button id="continue">Continue</button>
                 </div>
             </div>
-            
+    
+           
+            <div id="quiz">
+                <div id="quiz_header">
+                    <h5>Amazing Quiz App</h5>
+                    <div id="timer">
+                        <h6>Time Left</h6>
+                        <h6 id="time">00</h6>
+                    </div>
+                </div>
+    
+                <div id="question">
+                    <h2 id="questionNo"></h2>
+                    <h2 id="questionText"></h2>
+                </div>
+    
+                <div id="optionList">
+                    <h4 class="choice_que" id="option1"></h4>
+                    <h4 class="choice_que" id="option2"></h4>
+                    <h4 class="choice_que" id="option3"></h4>
+                    <h4 class="choice_que" id="option4"></h4>
+                </div>
+    
+                <div id="answersSection">
+                    <h3 id="total_correct">3 van de 10 vragen</h3>
+                    <h3 id="next_question">Next</h3>
+                </div>
+            </div>
+     
+            <div id="result">
+                <i class="fas fa-trophy"></i>
+                <h6>Cefeliciteerd</h6>
+                <h6 id="points">4/10 vragen goed</h6>
+                <button id="quit">Quit Quiz</button>
+                <button id="startAgain">Start Opnieuw</button>
+            </div>
+        </div>
+
+     <main>
       <div><a href=""></a><a href=""></a><a href=""></a></div>
     </main>
+
+
+
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
       <script type="module" src="./scripts/dababaseConfig.js"></script>
-
+      <script src="./scripts/vragenazie.js"></script>
+      <script src="./scripts/quizazie.js"></script>
+    
+ 
       <script src="./scripts/UseCollectiondata.js"></script>
 
   </body>
