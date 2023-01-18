@@ -1,3 +1,13 @@
+const sendbutton = document.getElementById("submit");
+const score1 = document.getElementById("score");
+
+const signedinsec = document.getElementById("whenSignedIn");
+const signedoutsec = document.getElementById("whenSignedOut");
+const signinbtn = document.getElementById("sign-in-btn");
+const signoutbtn = document.getElementById("sign-out-btn");
+const userDetails = document.getElementById("userDetails");
+
+const provider = new firebase.auth.GoogleAuthProvider();
 
   const firebaseConfig = {
     apiKey: "AIzaSyBa5aFttiVhtMV8uOHDNasHslmFIFLSLQ8",
@@ -12,11 +22,29 @@
   // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 console.log(firebase)
+const auth = firebase.auth();
 
 const db = firebase.firestore();
 console.log(db)
 
 var scoreRef = db.collection("scores");
+
+signinbtn.onclick = () => auth.signInWithPopup(provider);
+
+signoutbtn.onclick = () => auth.signOut();
+
+auth.onAuthStateChanged((user) => {
+  if (user) {
+    signedinsec.style.display = "flex"
+    signedoutsec.style.display = "none"
+    userDetails.innerHTML = user.displayName;
+  } else {
+    // niet ingelogt
+    signedinsec.style.display = "none"
+    signedoutsec.style.display = "flex"
+    userDetails.innerHTML = "";
+  }
+});
 
 
 db.collection("scores")
@@ -33,6 +61,15 @@ db.collection("scores")
         console.log("Error getting documents: ", error);
     });
 
+    sendbutton.onclick = () => {
+      scoreRef.add({
+        name: firebase.auth.currentUser.displayName ,
+        score: score1
+      }).then((scoreRef) =>{
+        console.log("document written ", scoreRef.id);
+      });
+
+    }
 
 
     
