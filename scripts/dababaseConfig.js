@@ -175,6 +175,42 @@ if (document.getElementById("scoreboardantartica")) {
         })
         console.log(user.displayName)
         scoreboardbtn.style.display = "none"
+        Swal.fire({
+          title: 'Success!',
+          text: 'Je score is toegevoegd aan het scoreboard herlaad de pagina om hem te zien!',
+          icon: 'success',
+          confirmButtonText: 'Sluit melding'
+        })
+      }
+      else if(document.getElementById("scoreboardeuropa")){
+        db.collection("scoreEuropa")
+        .add({
+          name: user.displayName,
+          score: correct
+        })
+        console.log(user.displayName)
+        scoreboardbtn.style.display = "none"
+        Swal.fire({
+          title: 'Success!',
+          text: 'Je score is toegevoegd aan het scoreboard herlaad de pagina om hem te zien!',
+          icon: 'success',
+          confirmButtonText: 'Sluit melding'
+        })
+      }
+       else if(document.getElementById("scoreboardantartica")){
+        db.collection("scoreAntartica")
+        .add({
+          name: user.displayName,
+          score: correct
+        })
+        console.log(user.displayName)
+        scoreboardbtn.style.display = "none"
+        Swal.fire({
+          title: 'Success!',
+          text: 'Je score is toegevoegd aan het scoreboard herlaad de pagina om hem te zien!',
+          icon: 'success',
+          confirmButtonText: 'Sluit melding'
+        })
       }
       
     } else {
@@ -188,8 +224,4 @@ if (document.getElementById("scoreboardantartica")) {
     }
   });
 
-  function reloadp(){
-    location.reload();
-
-  }
 }
