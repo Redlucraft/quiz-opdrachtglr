@@ -33,7 +33,7 @@ let choice_que = document.querySelectorAll(".choice_que");
 
 
 let index = 0;
-let timer = 0;
+let timer = 40;
 let interval = 0;
 
 let correct = 0;
@@ -56,11 +56,11 @@ exit.addEventListener("click", () => {
 
 
 let countDown = () => {
-    if (timer === 20) {
+    if (timer === 0) {
         clearInterval(interval);
         next_question.click();
     } else {
-        timer++;
+        timer--;
         time.innerText = timer;
     }
 }
@@ -76,7 +76,7 @@ let loadData = () => {
     option4.innerText = MCQS[index].choice4;
 
  
-    timer = 0;
+    timer = 40;
 }
 
 loadData();
