@@ -94,7 +94,7 @@ continueBtn.addEventListener("click", () => {
         removeActive.classList.remove("active");
     })
 
-    total_correct.innerHTML = `${correct = 0} Out Of ${MCQS.length} Questions`;
+    total_correct.innerHTML = `${correct = 0} Van de ${MCQS.length} vragen`;
 });
 
 choice_que.forEach((choices, choiceNo) => {
@@ -129,7 +129,7 @@ next_question.addEventListener("click", () => {
         loadData();
  
         total_correct.style.display = "block";
-        total_correct.innerHTML = `${correct} Out Of ${MCQS.length} Questions`;
+        total_correct.innerHTML = `${correct} Van de ${MCQS.length} vragen`;
         clearInterval(interval);
         interval = setInterval(countDown, 1000);
     } else {
@@ -139,7 +139,7 @@ next_question.addEventListener("click", () => {
   
         clearInterval(interval);
         quiz.style.display = "none";
-        points.innerHTML = `You Got ${correct} Out Of ${MCQS.length}`;
+        points.innerHTML = `You Got ${correct} Van de  ${MCQS.length}`;
         result.style.display = "block";
     }
     for (i = 0; i <= 3; i++) {
