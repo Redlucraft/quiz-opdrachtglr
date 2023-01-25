@@ -94,7 +94,7 @@ continueBtn.addEventListener("click", () => {
         removeActive.classList.remove("active");
     })
 
-    total_correct.innerHTML = `${correct = 0} Van de ${MCQS.length} vragen`;
+    total_correct.innerHTML = `${correct = 0} Van de ${MCQS.length} vragen goed`;
 });
 
 choice_que.forEach((choices, choiceNo) => {
@@ -129,7 +129,7 @@ next_question.addEventListener("click", () => {
         loadData();
  
         total_correct.style.display = "block";
-        total_correct.innerHTML = `${correct} Van de ${MCQS.length} vragen`;
+        total_correct.innerHTML = `${correct} Van de ${MCQS.length} vragen goed`;
         clearInterval(interval);
         interval = setInterval(countDown, 1000);
     } else {
