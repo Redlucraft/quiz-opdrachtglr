@@ -139,7 +139,7 @@ next_question.addEventListener("click", () => {
   
         clearInterval(interval);
         quiz.style.display = "none";
-        points.innerHTML = `You Got ${correct} Van de  ${MCQS.length}`;
+        points.innerHTML = `Je hebt ${correct} Van de  ${MCQS.length} vragen goed`;
         result.style.display = "block";
     }
     for (i = 0; i <= 3; i++) {
