@@ -9,23 +9,23 @@ const userDetails = document.getElementById("userDetails");
 
 const provider = new firebase.auth.GoogleAuthProvider();
 
-  const firebaseConfig = {
-    apiKey: "AIzaSyBa5aFttiVhtMV8uOHDNasHslmFIFLSLQ8",
-    authDomain: "glrquiz.firebaseapp.com",
-    projectId: "glrquiz",
-    storageBucket: "glrquiz.appspot.com",
-    messagingSenderId: "381361780483",
-    appId: "1:381361780483:web:a7e82b8f94da024c8e5b36",
-    measurementId: "G-P0DGRYCQRE"
-  };
+const firebaseConfig = {
+  apiKey: "AIzaSyBa5aFttiVhtMV8uOHDNasHslmFIFLSLQ8",
+  authDomain: "glrquiz.firebaseapp.com",
+  projectId: "glrquiz",
+  storageBucket: "glrquiz.appspot.com",
+  messagingSenderId: "381361780483",
+  appId: "1:381361780483:web:a7e82b8f94da024c8e5b36",
+  measurementId: "G-P0DGRYCQRE",
+};
 
-  // Initialize Firebase
+// Initialize Firebase
 firebase.initializeApp(firebaseConfig);
-console.log(firebase)
+console.log(firebase);
 const auth = firebase.auth();
 
 const db = firebase.firestore();
-console.log(db)
+console.log(db);
 
 var scoreRef = db.collection("scores");
 
@@ -35,87 +35,99 @@ signoutbtn.onclick = () => auth.signOut();
 
 auth.onAuthStateChanged((user) => {
   if (user) {
-    signedinsec.style.display = "flex"
-    signedoutsec.style.display = "none"
+    signedinsec.style.display = "flex";
+    signedoutsec.style.display = "none";
     userDetails.innerHTML = user.displayName;
   } else {
     // niet ingelogt
-    signedinsec.style.display = "none"
-    signedoutsec.style.display = "flex"
+    signedinsec.style.display = "none";
+    signedoutsec.style.display = "flex";
     userDetails.innerHTML = "";
   }
 });
 
-if(document.getElementById("scoreboardazie")){
-db.collection("scoreAzie")
+if (document.getElementById("scoreboardazie")) {
+  db.collection("scoreAzie")
     .get()
     .then((querySnapshot) => {
       querySnapshot.forEach((doc) => {
-          // doc.data() is never undefined for query doc snapshots
-          console.log(doc.id, " => ", doc.data());
-
-          let innerscores = document.createElement("li");
-          innerscores.setAttribute("class", "scores");
-          innerscores.innerHTML = "Name: " + doc.data().name + " Score: " + doc.data().score;
-          document.getElementById("scoreboard").append(innerscores);
-      });
-    })
-    .catch((error) => {
-        console.log("Error getting documents: ", error);
-    });
-  }
-if(document.getElementById("scoreboardeuropa")){
-  db.collection("scoreEuropa")
-    .get()
-    .then((querySnapshot) => {
-        querySnapshot.forEach((doc) => {
-            // doc.data() is never undefined for query doc snapshots
-            console.log(doc.id, " => ", doc.data());
-
-            let innerscores = document.createElement("li");
-            innerscores.setAttribute("class", "scores");
-            innerscores.innerHTML = "Name: " + doc.data().name + " Score: " + doc.data().score;
-            document.getElementById("scoreboard").append(innerscores);
-        });
-    })
-    .catch((error) => {
-        console.log("Error getting documents: ", error);
-    });
-}
-if(document.getElementById("scoreboardantartica")){
-  db.collection("scoreAntartica")
-  .get()
-  .then((querySnapshot) => {
-    querySnapshot.forEach((doc) => {
         // doc.data() is never undefined for query doc snapshots
         console.log(doc.id, " => ", doc.data());
 
         let innerscores = document.createElement("li");
         innerscores.setAttribute("class", "scores");
-        innerscores.innerHTML = "Name: " + doc.data().name + " Score: " + doc.data().score;
+        innerscores.innerHTML =
+          "<span>Name: " +
+          doc.data().name +
+          " </span><span>Score: " +
+          doc.data().score +
+          "</span>";
         document.getElementById("scoreboard").append(innerscores);
-    });
-  })
-  .catch((error) => {
+      });
+    })
+    .catch((error) => {
       console.log("Error getting documents: ", error);
-  });
+    });
+}
+if (document.getElementById("scoreboardeuropa")) {
+  db.collection("scoreEuropa")
+    .get()
+    .then((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+        // doc.data() is never undefined for query doc snapshots
+        console.log(doc.id, " => ", doc.data());
+
+        let innerscores = document.createElement("li");
+        innerscores.setAttribute("class", "scores");
+        innerscores.innerHTML =
+          "<span>Name: " +
+          doc.data().name +
+          " </span><span>Score: " +
+          doc.data().score +
+          "</span>";
+        document.getElementById("scoreboard").append(innerscores);
+      });
+    })
+    .catch((error) => {
+      console.log("Error getting documents: ", error);
+    });
+}
+if (document.getElementById("scoreboardantartica")) {
+  db.collection("scoreAntartica")
+    .get()
+    .then((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+        // doc.data() is never undefined for query doc snapshots
+        console.log(doc.id, " => ", doc.data());
+
+        let innerscores = document.createElement("li");
+        innerscores.setAttribute("class", "scores");
+        innerscores.innerHTML =
+          "<span>Name: " +
+          doc.data().name +
+          " </span><span>Score: " +
+          doc.data().score +
+          "</span>";
+        document.getElementById("scoreboard").append(innerscores);
+      });
+    })
+    .catch((error) => {
+      console.log("Error getting documents: ", error);
+    });
 }
 
-    // sendbutton.onclick = () => {
-    //   scoreRef.add({
-    //     name: firebase.auth.currentUser.displayName ,
-    //     score: score1
-    //   }).then((scoreRef) =>{
-    //     console.log("document written ", scoreRef.id);
-    //   });
+// sendbutton.onclick = () => {
+//   scoreRef.add({
+//     name: firebase.auth.currentUser.displayName ,
+//     score: score1
+//   }).then((scoreRef) =>{
+//     console.log("document written ", scoreRef.id);
+//   });
 
-    // }
+// }
 
-
-    
-
-    // const auth = firebase.auth();
-    // function signInWithGoogle () {
-    //     const provider = new firebase.auth.GoogleAuthProvider();
-    //     auth.signInWithPopup(provider);
-    //   }
+// const auth = firebase.auth();
+// function signInWithGoogle () {
+//     const provider = new firebase.auth.GoogleAuthProvider();
+//     auth.signInWithPopup(provider);
+//   }
