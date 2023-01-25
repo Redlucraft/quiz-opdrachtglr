@@ -159,3 +159,19 @@ main {
 #whenSignedIn:hover {
   background: hsl(6, 100%, 30%);
 }
+
+ul.scores {
+  list-style: none;
+  li {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    justify-content: center;
+    text-transform: capitalize;
+    font-size: 18px;
+    span:first-child::after {
+      content: "|";
+      margin-left: 15px;
+    }
+  }
+}

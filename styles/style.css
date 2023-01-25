@@ -157,4 +157,20 @@ main .btn-wrapper button:hover {
 
 #whenSignedIn:hover {
   background: hsl(6deg, 100%, 30%);
+}
+
+ul.scores {
+  list-style: none;
+}
+ul.scores li {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+  justify-content: center;
+  text-transform: capitalize;
+  font-size: 18px;
+}
+ul.scores li span:first-child::after {
+  content: "|";
+  margin-left: 15px;
 }/*# sourceMappingURL=style.css.map */
