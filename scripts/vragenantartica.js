@@ -1,5 +1,5 @@
 let MCQS = [{
-    question: "Welke type pinguin bestaat niet/",
+    question: "Welke type pinguin bestaat niet?",
     choice1: "Ezelspinguïn",
     choice2: "KoningsPinguin",
     choice3: "Rotsspringerpinguïn",
@@ -7,7 +7,7 @@ let MCQS = [{
     answer: 3
 },
             {
-            question: "Wat dier staat het hoogste in de voetselkring",
+            question: "Welk dier staat het hoogste in de voetselkring",
     choice1: "Glasneus walvis",
     choice2: "blauwe walvis",
     choice3: "Killer walvis",
@@ -26,7 +26,7 @@ let MCQS = [{
 
 },
 {
-    question: "De bonen van pinguins zorgen ervoor om langer onderwater te kunnen blijven",
+    question: "De botten van pinguins zorgen ervoor om langer onderwater te kunnen blijven",
 choice1: "Waar",
 choice2: "Niet waar",
 choice3: "Ik weet het niet",
@@ -63,7 +63,6 @@ choice3: "-40.3",
 choice4: "-90",
 answer: 1
 
-
 },
 {
     question: "Wat is antartica",
@@ -71,7 +70,7 @@ choice1: "Een coctail",
 choice2: "Een groep",
 choice3: "Een land",
 choice4: "Een continent",
-answer: 1
+answer: 3
 
 
 },
