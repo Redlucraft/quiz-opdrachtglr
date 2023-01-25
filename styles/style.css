@@ -20,6 +20,7 @@ header {
 header img {
   height: 100%;
   filter: drop-shadow(0 0 10px hsla(0deg, 100%, 90%, 0.5));
+  cursor: pointer;
 }
 header div {
   color: hsl(206deg, 59%, 92%);

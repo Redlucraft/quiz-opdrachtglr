@@ -4,6 +4,28 @@
   padding: 0;
   margin: 0;
   font-family: "Source Sans Pro", sans-serif;
+  align-items: center;
+}
+
+main {
+    color: hsl(0deg 0% 0%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 60vh;
+    padding: 0 20%;
+    gap: 25px;
+    padding-top: 120px;
+}
+
+.happy{
+    height: 40%;
+   padding-left: 95px;
+   padding-top: 40px;
+  border-radius: 30px;
+  text-shadow: 6px 6px;
+  
 }
 
 /* body {
@@ -159,10 +181,12 @@
     top: 90px;
     display: flex;
     flex-direction: row;
+    color: black;
 }
 
 #quiz #question h2 {
     font-size: 27px;
+    color: black;
 }
 
 #quiz #question h2:first-child {
@@ -193,11 +217,11 @@
 }
 
 #quiz #optionList h4:hover {
-    background: #e91e3a;
+    background: #077b8a;
 }
 
 #quiz #optionList .active {
-    background: #e91e3a;
+    background: #077b8a;
 }
 
 #quiz #optionList .disabled {
@@ -229,10 +253,10 @@
     width: 100px;
     display: grid;
     place-items: center;
-    background: #ff5235;
+    background: #077b8a;
     position: absolute;
     right: 0;
-    color: #fff;
+    color: rgb(0, 0, 0);
     border: 1px solid #b0c4d8;
     font-size: 18px;
     border-radius: 20px 5px;
@@ -241,7 +265,7 @@
 }
 
 #quiz #answersSection h3:hover {
-    background: #e91e3a;
+    background: #134950;
 }
 
 #quiz #answersSection h3:first-child:hover {
@@ -263,7 +287,7 @@
 
 #container #result i {
     font-size: 180px;
-    color: #ff5235;
+    color: #077b8a;
     position: absolute;
     top: 30px;
     left: 120px;
@@ -288,7 +312,7 @@
     width: 260px;
     border: none;
     outline: none;
-    background: #ff5235;
+    background: #077b8a;
     color: #e7f1fa;
     position: absolute;
     left: 105px;
@@ -304,5 +328,8 @@
 }
 
 #container #result button:hover {
-    background: #e91e3a;
+    background: #134950;
+}
+li{
+    color:white;
 }

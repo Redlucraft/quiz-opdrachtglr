@@ -6,8 +6,22 @@ const signedoutsec = document.getElementById("whenSignedOut");
 const signinbtn = document.getElementById("sign-in-btn");
 const signoutbtn = document.getElementById("sign-out-btn");
 const userDetails = document.getElementById("userDetails");
+const scoreboardbtn = document.getElementById("submitscore");
 
 const provider = new firebase.auth.GoogleAuthProvider();
+
+const Toast = Swal.mixin({
+  toast: true,
+  position: 'top-end',
+  showConfirmButton: false,
+  timer: 5000,
+  timerProgressBar: true,
+  didOpen: (toast) => {
+    toast.addEventListener('mouseenter', Swal.stopTimer)
+    toast.addEventListener('mouseleave', Swal.resumeTimer)
+  }
+})
+
 
 const firebaseConfig = {
   apiKey: "AIzaSyBa5aFttiVhtMV8uOHDNasHslmFIFLSLQ8",
@@ -33,21 +47,34 @@ signinbtn.onclick = () => auth.signInWithPopup(provider);
 
 signoutbtn.onclick = () => auth.signOut();
 
+
 auth.onAuthStateChanged((user) => {
   if (user) {
     signedinsec.style.display = "flex";
     signedoutsec.style.display = "none";
     userDetails.innerHTML = user.displayName;
+    Toast.fire({
+      icon: 'success',
+      title: 'Signed in successfully'
+    })
+    
+    
+    
   } else {
     // niet ingelogt
     signedinsec.style.display = "none";
     signedoutsec.style.display = "flex";
     userDetails.innerHTML = "";
+    Toast.fire({
+      icon: 'warning',
+      title: 'Signed out'
+    })
   }
 });
 
-if (document.getElementById("scoreboardazie")) {
-  db.collection("scoreAzie")
+if(document.getElementById("scoreboardazie")){
+db.collection("scoreAzie")
+.orderBy("score", "desc")
     .get()
     .then((querySnapshot) => {
       querySnapshot.forEach((doc) => {
@@ -71,6 +98,7 @@ if (document.getElementById("scoreboardazie")) {
 }
 if (document.getElementById("scoreboardeuropa")) {
   db.collection("scoreEuropa")
+    .orderBy("score", "desc")
     .get()
     .then((querySnapshot) => {
       querySnapshot.forEach((doc) => {
@@ -94,9 +122,10 @@ if (document.getElementById("scoreboardeuropa")) {
 }
 if (document.getElementById("scoreboardantartica")) {
   db.collection("scoreAntartica")
-    .get()
-    .then((querySnapshot) => {
-      querySnapshot.forEach((doc) => {
+  .orderBy("score", "desc")
+  .get()
+  .then((querySnapshot) => {
+    querySnapshot.forEach((doc) => {
         // doc.data() is never undefined for query doc snapshots
         console.log(doc.id, " => ", doc.data());
 
@@ -126,8 +155,73 @@ if (document.getElementById("scoreboardantartica")) {
 
 // }
 
-// const auth = firebase.auth();
-// function signInWithGoogle () {
-//     const provider = new firebase.auth.GoogleAuthProvider();
-//     auth.signInWithPopup(provider);
-//   }
+
+    
+
+    // const auth = firebase.auth();
+    // function signInWithGoogle () {
+    //     const provider = new firebase.auth.GoogleAuthProvider();
+    //     auth.signInWithPopup(provider);
+    //   }
+    scoreboardbtn.onclick = () => {
+  const user = firebase.auth().currentUser;
+  auth.onAuthStateChanged((user1) => {
+    if (user1) {
+      if(document.getElementById("scoreboardazie")){
+        db.collection("scoreAzie")
+        .add({
+          name: user.displayName,
+          score: correct
+        })
+        console.log(user.displayName)
+        scoreboardbtn.style.display = "none"
+        Swal.fire({
+          title: 'Success!',
+          text: 'Je score is toegevoegd aan het scoreboard herlaad de pagina om hem te zien!',
+          icon: 'success',
+          confirmButtonText: 'Sluit melding'
+        })
+      }
+      else if(document.getElementById("scoreboardeuropa")){
+        db.collection("scoreEuropa")
+        .add({
+          name: user.displayName,
+          score: correct
+        })
+        console.log(user.displayName)
+        scoreboardbtn.style.display = "none"
+        Swal.fire({
+          title: 'Success!',
+          text: 'Je score is toegevoegd aan het scoreboard herlaad de pagina om hem te zien!',
+          icon: 'success',
+          confirmButtonText: 'Sluit melding'
+        })
+      }
+       else if(document.getElementById("scoreboardantartica")){
+        db.collection("scoreAntartica")
+        .add({
+          name: user.displayName,
+          score: correct
+        })
+        console.log(user.displayName)
+        scoreboardbtn.style.display = "none"
+        Swal.fire({
+          title: 'Success!',
+          text: 'Je score is toegevoegd aan het scoreboard herlaad de pagina om hem te zien!',
+          icon: 'success',
+          confirmButtonText: 'Sluit melding'
+        })
+      }
+      
+    } else {
+      Swal.fire({
+        title: 'Error!',
+        text: 'Je bent niet ingelogd daardoor kan je geen score insturen',
+        icon: 'error',
+        confirmButtonText: 'Sluit melding'
+      })
+      
+    }
+  });
+
+}
