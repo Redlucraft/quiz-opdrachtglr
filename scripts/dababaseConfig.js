@@ -61,15 +61,15 @@ db.collection("scores")
         console.log("Error getting documents: ", error);
     });
 
-    sendbutton.onclick = () => {
-      scoreRef.add({
-        name: firebase.auth.currentUser.displayName ,
-        score: score1
-      }).then((scoreRef) =>{
-        console.log("document written ", scoreRef.id);
-      });
+    // sendbutton.onclick = () => {
+    //   scoreRef.add({
+    //     name: firebase.auth.currentUser.displayName ,
+    //     score: score1
+    //   }).then((scoreRef) =>{
+    //     console.log("document written ", scoreRef.id);
+    //   });
 
-    }
+    // }
 
 
     

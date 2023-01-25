@@ -78,18 +78,29 @@
      <main>
       <div><a href=""></a><a href=""></a><a href=""></a></div>
     </main>
+    <section id="whenSignedOut">
+      <button id="sign-in-btn">
+        <span class="material-symbols-outlined"> login </span>
+      </button>
+    </section>
+    <section id="whenSignedIn" hidden="true">
+      <div id="userDetails"></div>
+      <button id="sign-out-btn">
+        <span class="material-symbols-outlined"> logout </span>Uitloggen
+      </button>
+    </section>
 
 
 
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
       <script type="module" src="./scripts/dababaseConfig.js"></script>
       <script src="./scripts/vragenazie.js"></script>
       <script src="./scripts/quizazie.js"></script>
     
  
       <script src="./scripts/UseCollectiondata.js"></script>
-
   </body>
 
 </html>
