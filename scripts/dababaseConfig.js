@@ -46,20 +46,60 @@ auth.onAuthStateChanged((user) => {
   }
 });
 
+if(document.getElementById("scoreboardazie")){
+db.collection("scoreAzie")
+    .get()
+    .then((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+          // doc.data() is never undefined for query doc snapshots
+          console.log(doc.id, " => ", doc.data());
 
-db.collection("scores")
+          let innerscores = document.createElement("li");
+          innerscores.setAttribute("class", "scores");
+          innerscores.innerHTML = "Name: " + doc.data().name + " Score: " + doc.data().score;
+          document.getElementById("scoreboard").append(innerscores);
+      });
+    })
+    .catch((error) => {
+        console.log("Error getting documents: ", error);
+    });
+  }
+if(document.getElementById("scoreboardeuropa")){
+  db.collection("scoreEuropa")
     .get()
     .then((querySnapshot) => {
         querySnapshot.forEach((doc) => {
             // doc.data() is never undefined for query doc snapshots
             console.log(doc.id, " => ", doc.data());
 
-
+            let innerscores = document.createElement("li");
+            innerscores.setAttribute("class", "scores");
+            innerscores.innerHTML = "Name: " + doc.data().name + " Score: " + doc.data().score;
+            document.getElementById("scoreboard").append(innerscores);
         });
     })
     .catch((error) => {
         console.log("Error getting documents: ", error);
     });
+}
+if(document.getElementById("scoreboardantartica")){
+  db.collection("scoreAntartica")
+  .get()
+  .then((querySnapshot) => {
+    querySnapshot.forEach((doc) => {
+        // doc.data() is never undefined for query doc snapshots
+        console.log(doc.id, " => ", doc.data());
+
+        let innerscores = document.createElement("li");
+        innerscores.setAttribute("class", "scores");
+        innerscores.innerHTML = "Name: " + doc.data().name + " Score: " + doc.data().score;
+        document.getElementById("scoreboard").append(innerscores);
+    });
+  })
+  .catch((error) => {
+      console.log("Error getting documents: ", error);
+  });
+}
 
     // sendbutton.onclick = () => {
     //   scoreRef.add({
