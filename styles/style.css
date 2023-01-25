@@ -78,19 +78,21 @@ main .btn-wrapper {
   width: 100%;
   gap: 10px;
 }
-main .btn-wrapper button {
+main .btn-wrapper a {
   background: hsl(199deg, 100%, 25%);
   color: hsl(206deg, 59%, 92%);
   font-family: "Bangers", cursive;
   font-size: 24px;
   border: none;
   padding: 10px 0;
+  text-decoration: none;
+  text-align: center;
   -webkit-clip-path: polygon(5% 0%, 100% 0%, 95% 100%, 0% 100%);
           clip-path: polygon(5% 0%, 100% 0%, 95% 100%, 0% 100%);
   transition: all 150ms ease-in-out;
   cursor: pointer;
 }
-main .btn-wrapper button:hover {
+main .btn-wrapper a:hover {
   -webkit-clip-path: polygon(0 0, 95% 0, 100% 100%, 5% 100%);
           clip-path: polygon(0 0, 95% 0, 100% 100%, 5% 100%);
 }

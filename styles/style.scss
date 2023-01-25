@@ -79,7 +79,7 @@ main {
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     width: 100%;
     gap: 10px;
-    button {
+    a {
       // grid-row: 1;
       background: hsl(199, 100%, 25%);
       color: $color-mainWhite;
@@ -87,12 +87,14 @@ main {
       font-size: 24px;
       border: none;
       padding: 10px 0;
+      text-decoration: none;
+      text-align: center;
       // border-radius: 10px;
       clip-path: polygon(5% 0%, 100% 0%, 95% 100%, 0% 100%);
       transition: all 150ms ease-in-out;
       cursor: pointer;
     }
-    button:hover {
+    a:hover {
       clip-path: polygon(0 0, 95% 0, 100% 100%, 5% 100%);
     }
   }
